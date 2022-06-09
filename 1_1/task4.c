@@ -16,21 +16,21 @@ int main()
 	int i;
 	for (i = 0; i < 32; i++)
 	{
-    x = pow(2, i) - 1;
-		if(is_prime(x))
-			printf("%d\n", x);
+		x = pow(2, i) - 1;
+		if(is_prime(x)) printf("%d\n", x);
 	}
 	return 0;
 }
 
 int is_prime(unsigned int x)
 {
-  int i;
-
-	if (x < 2) return 0;
+	int i;
+	if (x < 2) 
+		return 0;
 
 	for (i = 2; i <= sqrt(x); i++)
-		if((x % i) == 0)
+		if((x % i) == 0) 
 			return 0;
+
 	return 1;
 }

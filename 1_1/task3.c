@@ -31,10 +31,10 @@ int main ()
 	double x[3];
 	double a, b, c;
 	printf("Sides of the tri: ");
-  scanf("%lf %lf %lf", &x[0], &x[1], &x[2]);
-	
+	scanf("%lf %lf %lf", &x[0], &x[1], &x[2]);
+
 	if (x[0] + x[1] > x[2] &&
-		 	x[0] + x[2] > x[1] &&
+			x[0] + x[2] > x[1] &&
 			x[1] + x[2] > x[0])
 	{
 		a = find_angle(x[0], x[1], x[2]);
@@ -53,7 +53,7 @@ double find_angle(double x, double y, double z)
 	double deg;
 	deg = acos((pow(x,2) + pow(y,2) - pow(z,2)) / (2 * x * y));
 	deg = deg * (180/PI);
-  return deg;
+	return deg;
 }
 
 void calc_dms_print(double a)

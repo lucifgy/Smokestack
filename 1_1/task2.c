@@ -23,10 +23,10 @@ int main()
 	int sides[4];
 	scanf("%d %d %d", &sides[0], &sides[1], &sides[2]);
 	int gcd_res = gcd(sides[0],gcd(sides[1],sides[2]));
-	
+
 	int i;
 	sides[3] = 0;
-  for (i = 1; i < 4; i++)
+	for (i = 1; i < 4; i++)
 	{
 		if (sides[i - 1] > sides[i])
 		{
@@ -37,7 +37,7 @@ int main()
 	}
 
 	if(pow(sides[0], 2) + pow(sides[1], 2)
-		 	== pow(sides[3], 2))
+			== pow(sides[3], 2))
 	{
 		printf("Pythagorean Triple\n");	
 		if(gcd(sides[0], gcd(sides[1], sides[2])) == 1)
@@ -45,7 +45,7 @@ int main()
 			printf("Primitive\n");
 		}
 	}
-  return 0;
+	return 0;
 }
 
 int gcd(int a, int b)
