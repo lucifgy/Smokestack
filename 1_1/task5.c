@@ -1,70 +1,57 @@
 /*
- * Continues fractions a0 + (1 / (a1 + 1 / (a2 + (1 / ( ai)))))
- * i is a non negative integers and ai is a positive integer
+ *
+ * First we convert given decimal to fraction
+ * Then we calculate the continued fraction of the fraction
  * 
- * r = 2.2
- * x = (int)r
- * y = x - r
- * if y != 0
- * y = 1 / y
+ * To convert decimal to fraction:
+ * We take the int and the fraction part of a given number
+ * Then we calculate the GCD of fraction part with 10^9 percision
+ * We calculate the numerator by diving int equivalent of fraction by gcd
+ * And calculate the denominator by dividing the precision value by gcd
+ * Drom mixed fraction we conver it to improper fraction.
  *
- * a = n % 1
- * if a == 0 //rational and integer
- * if a % 1 = a //repeating rational
- * else //irrational
  *
- * x = sqrt(y);
- * z = sqrt(x);
- * if z * z != sqrt(x): irrational;
  */
 //TODO:
-//Fix last digits of continued fractions being incorrect
+//Insert condition for rational input
+//
 #include <stdio.h>
 #include <math.h>
 
-double foo(double r);
-int is_rational(double n);
 int gcd(int a, int b);
 
-int main() 
-
+int main()
 {
-	int i;
-	double x;
-	printf("Enter an irrational number: ");
-	scanf("%lf", &x);
-	foo(x);
+	double n;
 
-	if (is_rational(x)) printf("Enter irrational number\n");
+	printf("Enter an irrational number: ");
+	scanf("%lf",&n);
+
+	int precision = pow(10,9);
+	int i = floor(n);
+	double f = n - i;
+	int g = gcd(f * precision, precision);
+	int numerator = (f * precision) / g;
+	int denominator = precision / g;
+	numerator = ((i * denominator) + numerator);
+
+	int r, output;
+	int period = 0;
+	while(denominator != 0)
+	{
+		period += 1;
+		r = numerator % denominator;
+		output = (numerator - r) / denominator;
+		printf("%d ",output);
+		numerator = denominator;
+		denominator = r;
+	}
+	printf("\nPeriod: %d",period);
 	return 0;
 }
 
-double foo(double r)
-{
-	int x = (int)r;
-	double y = r - x;
-	if (is_rational(y))
-	{
-		printf("%d", x);
-		return 0.0;
-	}
-	if (fabs(y) <= 0.00001)
-	{
-		return 0.0;
-	}
-	else
-		printf("%d ", x);
-
-	return foo(1 / y);
-}
-
-int is_rational(double n)
-{
-	if (fmod(n,1) == 0) return 1;
-	else return 0;
-}
 int gcd(int a, int b)
 {
-	if (b == 0) return a;
+	if (b==0) return a;
 	return gcd(b, a%b);
 }
