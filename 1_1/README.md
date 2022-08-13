@@ -51,7 +51,7 @@ you can take files with genomes from https://www.ncbi.nlm.nih.gov/genome.
 
 Create a data structure for the hash table and define the following operations for it:
 - Insert a new key and value. At the same time, when a certain condition is reached (for example, a too     long list for one of the baskets relative to the total number of elements in the hash table), the hash      table must be rebalanced.
-- Search for values ÎõÎõby key. In case the key is not found, some predetermined value is returned.
+- Search for values by key. In case the key is not found, some predetermined value is returned.
 - Delete key and value. If the key is not found, nothing happens. Rebalancing is not required.
 
 8 - Filters
