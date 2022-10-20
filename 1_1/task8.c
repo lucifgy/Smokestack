@@ -23,12 +23,12 @@ typedef struct
 	unsigned int Height;
 	unsigned short biBitCount;
 	unsigned short biPlanes;
-    unsigned int biCompression;
-    unsigned int biSizeImage;
-    unsigned int biXPelsPerMeter;
-    unsigned int biYPelsPerMeter;
-    unsigned int biClrUsed;
-    unsigned int biClrImportant;
+	unsigned int biCompression;
+	unsigned int biSizeImage;
+	unsigned int biXPelsPerMeter;
+	unsigned int biYPelsPerMeter;
+	unsigned int biClrUsed;
+	unsigned int biClrImportant;
 
 }BitmapInfoHeader;
 
@@ -66,21 +66,21 @@ void read_image_file(char *input_file, BitmapImage *image)
 	BitmapFileHeader *file_header = &image->file_header;
 	fread(file_header, sizeof(BitmapFileHeader), 1, fp);
 	//if file_header->type != 0x4D42 "file isn't bmp format"
-	
+
 	BitmapInfoHeader *info_header = &image->info_header;
 	fread(info_header, sizeof(BitmapInfoHeader), 1, fp);
 	//if info_header->BitCount != 24 && 32 "file is not 32 or 24 bits"
-	
+
 	fseek(fp, file_header->OffBits, SEEK_SET);
 
 	RGB *image_data = (RGB *)malloc(info_header->Width * info_header->Height * sizeof(RGB));
 	//if !image_data "Couldn't malloc image
-	
+
 	//platte
 	size_t platteSize = file_header->OffBits - sizeof(BitmapFileHeader) - sizeof(BitmapInfoHeader);
 	image->platte = NULL;
 	image->platte_size = 0;
-	
+
 	if(platteSize > 0)
 	{
 		image->platte = (char *)malloc(platteSize);
@@ -197,7 +197,7 @@ void apply_sobel(RGB *img, int width, int height, int *matrix)
 			if (g > 255) g = 255;
 			if (b < 0) b = 0;
 			if (b > 255) b = 255;
-			
+
 			img[i * width + j].red = r;
 			img[i * width + j].green = g;
 			img[i * width + j].blue = b;
