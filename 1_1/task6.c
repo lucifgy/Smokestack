@@ -22,7 +22,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#define N 32768
+#define N 20//32768
 
 int cmp(const void *a1, const void *a2);
 void rand_txt(int size);
@@ -44,36 +44,74 @@ int main()
 	int len = strlen(addr);
 	int numbers[N];
 
-	for(i = 0; i < N; i++)
-		numbers[i] = 0;
-	int j = 0;
-	for (i = 0; addr[i] != '\0'; i++)
-	{
-		if(addr[i] == '\n')
-			j++;	
-		else 
-			numbers[j] = numbers[j] * 10 + ((int)addr[i] - 48);
-	}
 
-	qsort(numbers, N, sizeof(numbers[0]), cmp);
+	int j, k;
 
-	char *str = (char*)malloc(N * sizeof(char));
-	int index = 0;
+	char** linePtr = (char**)malloc(N * sizeof(char*));
+    char* str = (char*)malloc(N * sizeof(char));
 
-	for(i = 0; i < N; i++)
-		index += sprintf(&str[index], "%d\n", numbers[i]);
+    k = 0;
+
+    for (i = 0; i < N; ) {
+        j = 0;
+
+        while (k < len) {
+            if (addr[k] == '\n') {
+                str[j] = '\n';
+                j++;
+                k++;
+				break;
+            }
+
+            str[j] = addr[k];
+			j++;
+			k++;
+        }
+
+        linePtr[i++] = strdup(str);
+
+        if (k == len) {
+            break;
+        }
+    }
+
+
+	qsort(linePtr, N, sizeof(char*), cmp);
+
+
+	char* floutMapped = (char*)malloc(len * sizeof(char*));
+    k = 0;
+
+	for (i = 0; i < N; i++) {
+        char* tmp = linePtr[i];
+
+        while (*tmp != '\n') {
+            floutMapped[k] = *tmp;
+            k++;
+            tmp++;
+        }
+
+        if (*tmp == '\n') {
+            floutMapped[k] = '\n';
+            k++;
+        }
+
+        free(linePtr[i]);
+    }
+
+
 
 	int outfile = open("out.txt", O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
-	write(outfile,str,len);
+	write(outfile,floutMapped,len);
 
 	return 0;
 }
 
 int cmp(const void *a1, const void *a2)
 {
-	const int x = *(const int *)a1;
-	const int y = *(const int *)a2;
-	return (x > y) - (x < y);
+	const char *x = *(char **)a1;
+	const char *y = *(char **)a2;
+	return strcmp(x,y);
 }
 void rand_txt(int size)
 {
