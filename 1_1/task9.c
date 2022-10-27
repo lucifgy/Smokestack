@@ -109,25 +109,54 @@ void *myRealloc(void *ptr, size_t size)
 	void *newPtr = myMalloc(size);
 
 	Block *block = mem_block;
+	//printf("%zu\n",block->meta.size);
 	//shrink
 	if(block->meta.size > size)
 	{
-		size_t freed_space = block->meta.size + freed_space;
-		fillMeta(&block->meta, size, block->meta.next, block->meta.prev, 0);
-		
-		Block *freedBlock = (Block*) block->data - (block->meta.size - size);
-		myFree(freedBlock);
-		fillMeta(&block->meta, freed_space + sizeof(Meta), block->meta.next, block, 1);
+		//fillMeta(&block->meta, size, block->meta.next, block->meta.prev, 1);
 
-		return ptr;
+		//Block *freedBlock = (Block*) block->data - (block->meta.size - size);
+
+		//size_t freed_space = block->meta.size - size;
+		//fillMeta(&freedBlock->meta, freed_space, block, block->meta.prev, 0);
+
+
+		Block *freedBlock = (Block*) block->data - size;
+		fillMeta(&freedBlock->meta, block->meta.size - size, block->meta.next, block, 0);
+
+		fillMeta(&block->meta, size, freedBlock, block->meta.prev, 1);
+
+		//char *str = myMalloc(size*sizeof(char));
+		//strcpy(str, "ad");
+		//memcpy(str, block->data, size);
+
+		//printf("Freed: %s\n",freedBlock->data);
+		//printf("Block: %s\n",block->data);
+
+		//printf("%zu\n",freedBlock->meta.size);
+
+		return block->data;
 	}
 	//expand or malloc
 	if(block->meta.size < size)
 	{
-		memcpy(newPtr, ptr, size);
-		myFree(ptr);
-		return newPtr;
+		size_t needed_space = size - block->meta.size;
+
+		Block* next = block->meta.next;
+
+		if(next->meta.size < needed_space)
+		{
+			fillMeta(&block->meta, block->meta.size + needed_space, next->meta.next, block->meta.prev, 1);
+		}
+
+		else{
+			memcpy(newPtr, ptr, size);
+			myFree(ptr);
+			printf("%zu\n",block->meta.size);
+			return newPtr;
+		}
 	}
+	else return NULL;;
 	return NULL;
 
 }
@@ -172,21 +201,27 @@ int main ()
 {
 
 	init();
-	char *c1 = myMalloc(5 * sizeof(char));
-	char *c2 = myMalloc(10 * sizeof(char));
-	char *c3 = myMalloc(5 * sizeof(char));
-	char *c4 = myMalloc(10 * sizeof(char));
-	char *c5 = myMalloc(5 * sizeof(char));
-	strcpy(c1, "1111");
-	strcpy(c2, "222222222");
-	strcpy(c3, "3333");
-	strcpy(c4, "444444444");
-	strcpy(c5, "5555");
-	myFree(c2);
-	myFree(c4);
-	char *c6 = myMalloc(15 * sizeof(char)); //cant because no space availabe (
-	myFree(c3);
-	c6 = myMalloc(15 * sizeof(char)); // can because free blocks merging together when c3       released
-
+	char *c1 = myMalloc(5*sizeof(char));
+	strcpy(c1, "222222222");
+	//printf("%s\n",c1);
+	myRealloc(c1, 3*sizeof(char));
+	//printf("%s",c1);
+	/*
+	   char *c1 = myMalloc(5 * sizeof(char));
+	   char *c2 = myMalloc(10 * sizeof(char));
+	   char *c3 = myMalloc(5 * sizeof(char));
+	   char *c4 = myMalloc(10 * sizeof(char));
+	   char *c5 = myMalloc(5 * sizeof(char));
+	   strcpy(c1, "1111");
+	   strcpy(c2, "222222222");
+	   strcpy(c3, "3333");
+	   strcpy(c4, "444444444");
+	   strcpy(c5, "5555");
+	   myFree(c2);
+	   myFree(c4);
+	   char *c6 = myMalloc(15 * sizeof(char)); //cant because no space availabe (
+	   myFree(c3);
+	   c6 = myMalloc(15 * sizeof(char)); // can because free blocks merging together when c3       released
+	   */
 	return 0;
 }
