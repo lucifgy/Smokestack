@@ -1,3 +1,5 @@
+package Characters;
+
 public class baseChar
 {
     private int health = 100;

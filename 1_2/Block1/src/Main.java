@@ -6,6 +6,11 @@ of at least 20 classes, with its description in the form of a UML diagram. Separ
 the project by files. Separate classes for play (with the choice of playing against human,
 against AI or AI against AI) and players.
  */
+import Characters.Mages;
+import Characters.Specials;
+import Characters.Warriors;
+import Characters.baseChar;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,7 +24,7 @@ public class Main {
     private static final String list_of_all_chars = "1.Warrior 2.Mage 3.Archer 4.Berserker 5.Vampire\n" +
             "6.Assassin 7.Cleric 8.Monk 9.Warlock 10.Tank\n" +
             "11.Kamikaze 12.Necromancer 13.Pyromancer 14.Lepricon 15.Zombie\n" +
-            "16.Puppeteer 17.Witch 18.Priest 19.Evil Priest 20.Basic";
+            "16.Puppeteer 17.Witch 18.Priest 19.Evil Priest";
     public static void main(String[] args)
     {
         menu();
@@ -125,26 +130,25 @@ public class Main {
         baseChar newChar = null;
         switch (selection) {
             //Warrior
-            case 1 -> newChar = new Heroes.warrior();
-            case 2 -> newChar = new Heroes.mage();
-            case 3 -> newChar = new Heroes.archer();
-            case 4 -> newChar = new Heroes.berserker();
-            case 5 -> newChar = new Heroes.vampire();
-            case 6 -> newChar = new Heroes.assassin();
-            case 7 -> newChar = new Heroes.cleric();
-            case 8 -> newChar = new Heroes.monk();
-            case 9 -> newChar = new Heroes.warlock();
-            case 10 -> newChar = new Heroes.tank();
-            case 11 -> newChar = new Heroes.kamikaze();
-            case 12 -> newChar = new Heroes.necromancer();
-            case 13 -> newChar = new Heroes.pyromancer();
-            case 14 -> newChar = new Heroes.lepricon();
-            case 15 -> newChar = new Heroes.zombie();
-            case 16 -> newChar = new Heroes.puppeteer();
-            case 17 -> newChar = new Heroes.witch();
-            case 18 -> newChar = new Heroes.priest();
-            case 19 -> newChar = new Heroes.evilpriest();
-            case 20 -> newChar = new Heroes.base();
+            case 1 -> newChar = new Warriors.warrior();
+            case 2 -> newChar = new Mages.mage();
+            case 3 -> newChar = new Specials.archer();
+            case 4 -> newChar = new Warriors.berserker();
+            case 5 -> newChar = new Warriors.vampire();
+            case 6 -> newChar = new Warriors.assassin();
+            case 7 -> newChar = new Mages.cleric();
+            case 8 -> newChar = new Warriors.monk();
+            case 9 -> newChar = new Mages.warlock();
+            case 10 -> newChar = new Warriors.tank();
+            case 11 -> newChar = new Specials.kamikaze();
+            case 12 -> newChar = new Mages.necromancer();
+            case 13 -> newChar = new Mages.pyromancer();
+            case 14 -> newChar = new Specials.lepricon();
+            case 15 -> newChar = new Specials.zombie();
+            case 16 -> newChar = new Specials.puppeteer();
+            case 17 -> newChar = new Mages.witch();
+            case 18 -> newChar = new Specials.priest();
+            case 19 -> newChar = new Specials.evilpriest();
             default -> System.out.println("Wrong Char input");
         }
         return newChar;

@@ -1,0 +1,221 @@
+Menu:
+1.PvP
+2.PvE
+3.AIvAI
+4.Exit
+2
+Starting Player versus Environment!
+Enter number of chars in a team:
+2
+1.Warrior 2.Mage 3.Archer 4.Berserker 5.Vampire
+6.Assassin 7.Cleric 8.Monk 9.Warlock 10.Tank
+11.Kamikaze 12.Necromancer 13.Pyromancer 14.Lepricon 15.Zombie
+16.Puppeteer 17.Witch 18.Priest 19.Evil Priest
+Select heroes in order:
+3
+5
+1.Warrior 2.Mage 3.Archer 4.Berserker 5.Vampire
+6.Assassin 7.Cleric 8.Monk 9.Warlock 10.Tank
+11.Kamikaze 12.Necromancer 13.Pyromancer 14.Lepricon 15.Zombie
+16.Puppeteer 17.Witch 18.Priest 19.Evil Priest
+Select heroes in order:
+7
+2
+Turn 1
+Team1's turn
+[ 1.Archer 2.Vampire ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+2
+Select attack: 
+1.(Basic attack) 2.(Ability)
+1
+80hp Mage has been attacked by Archer!
+Mage has 50 hp left.
+Team2's turn
+Heal your team by 15 hp
+
+
+Turn 2
+Team1's turn
+[ 1.Archer 2.Vampire ]
+Select attacker: 
+2
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+1
+Select attack: 
+1.(Basic attack) 2.(Ability)
+2
+Bloodlust(Heal the dmg dealt but -2 speed
+115hp Cleric has been attacked by Vampire!
+Cleric has 85 hp left.
+Team2's turn
+Missed.
+
+
+Turn 3
+Team1's turn
+[ 1.Archer 2.Vampire ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+2
+Select attack: 
+1.(Basic attack) 2.(Ability)
+2
+Critical(Has small chance to instantly but -4 speed): 
+65hp Mage has been attacked by Archer!
+Mage has 35 hp left.
+Team2's turn
+Missed.
+
+
+Turn 4
+Team1's turn
+[ 1.Archer 2.Vampire ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+1
+Select attack: 
+1.(Basic attack) 2.(Ability)
+2
+Critical(Has small chance to instantly but -4 speed): 
+Missed.
+Team2's turn
+110hp Vampire has been attacked by Cleric!
+Vampire has 80 hp left.
+
+
+Turn 5
+Team1's turn
+[ 1.Archer 2.Vampire ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+2
+Select attack: 
+1.(Basic attack) 2.(Ability)
+2
+Critical(Has small chance to instantly but -4 speed): 
+Missed.
+Team2's turn
+Missed.
+
+
+Turn 6
+Team1's turn
+[ 1.Archer 2.Vampire ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+2
+Select attack: 
+1.(Basic attack) 2.(Ability)
+2
+Critical(Has small chance to instantly but -4 speed): 
+Missed.
+Team2's turn
+Blast(each member of enemy gets damaged): 
+Missed.
+Missed.
+
+
+Turn 7
+Team1's turn
+[ 1.Archer 2.Vampire ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+1
+Select attack: 
+1.(Basic attack) 2.(Ability)
+1
+Missed.
+Team2's turn
+80hp Vampire has been attacked by Mage!
+Vampire has 25 hp left.
+
+
+Turn 8
+Team1's turn
+[ 1.Archer 2.Vampire ]
+Select attacker: 
+2
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+1
+Select attack: 
+1.(Basic attack) 2.(Ability)
+2
+Bloodlust(Heal the dmg dealt but -2 speed
+85hp Cleric has been attacked by Vampire!
+Cleric has 55 hp left.
+Team2's turn
+55hp Vampire has been attacked by Mage!
+Vampire is dead.
+
+
+Turn 9
+Team1's turn
+[ 1.Archer 2.-- ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+1
+Select attack: 
+1.(Basic attack) 2.(Ability)
+1
+55hp Cleric has been attacked by Archer!
+Cleric has 25 hp left.
+Team2's turn
+Mage attacked a corpse, and killed!
+
+
+Turn 10
+Team1's turn
+[ 1.Archer 2.-- ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+2
+Select attack: 
+1.(Basic attack) 2.(Ability)
+2
+Critical(Has small chance to instantly but -4 speed): 
+Missed.
+Team2's turn
+70hp Archer has been attacked by Cleric!
+Archer has 40 hp left.
+
+
+Turn 11
+Team1's turn
+[ 1.Archer 2.-- ]
+Select attacker: 
+1
+[ 1.Cleric 2.Mage ]
+Select opponent: 
+1
+Select attack: 
+1.(Basic attack) 2.(Ability)
+1
+Missed.
+Team2's turn
+40hp Archer has been attacked by Mage!
+Archer is dead.
+
+
+Team2 has won!
+
+Process finished with exit code 0
