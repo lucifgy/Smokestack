@@ -1,3 +1,5 @@
+package out_of_bounds;
+
 public class outofBounds {
     private int[] nums = {0,1,2};
     public  void wBug()
