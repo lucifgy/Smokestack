@@ -1,4 +1,6 @@
-public class SelectionSortGenerics {
+package java_class;
+
+public class SelectionSortGeneric {
 
     private <E> void swap(E[] a, int i, int j) {
         if (i != j) {
@@ -13,7 +15,7 @@ public class SelectionSortGenerics {
             // find index of smallest element
             int smallest = i;
             for (int j = i + 1; j < a.length; j++) {
-                if (a[j].compareTo(a[smallest])<=0) {
+                if (a[j].compareTo(a[smallest]) <= 0) {
                     smallest = j;
                 }
             }
