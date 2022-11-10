@@ -3,19 +3,19 @@ package JavaFile;
 import java.util.Objects;
 
 public class Sabbath {
-    String song;
     Integer year;
+    String song;
     String album;
 
-    public Sabbath(String song, Integer year, String album) {
-        this.song = song;
+    public Sabbath(Integer year, String song, String album) {
         this.year = year;
+        this.song = song;
         this.album = album;
     }
 
     @Override
     public String toString() {
-        return this.song;
+        return ""+this.year;
     }
 
     @Override

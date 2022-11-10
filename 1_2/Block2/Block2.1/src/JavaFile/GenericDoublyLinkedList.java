@@ -4,6 +4,7 @@ public class GenericDoublyLinkedList<T> {
         T value;
         Node next;
         Node previous;
+
         Node() {
         }
 
@@ -194,7 +195,7 @@ public class GenericDoublyLinkedList<T> {
 
     //Helpers:
     //Get node at index
-    private Node getNode(int index) {
+    public Node getNode(int index) {
         if (index > size())
             throw new IndexOutOfBoundsException();
         Node node = header;
