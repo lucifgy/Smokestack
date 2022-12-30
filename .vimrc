@@ -13,7 +13,7 @@ set copyindent
 
 set noexpandtab 
 set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
-set backspace=indent,eol,start  " backspace through everything in insert mode
+set backspace=indent,eol,start "backspace through everything in insert mode
 
 set showmatch
 set smarttab
@@ -26,4 +26,6 @@ colorscheme koehler
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
+set smartcase " ... unless they contain at least one capital letter
+command CompileNrun !gcc % && ./a.out
+map <F9> = :CompileNrun
