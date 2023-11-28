@@ -1,0 +1,17 @@
+#pragma once
+
+doesn't get interperted as same with all compliers
+
+#ifndef SOME_STRING
+#define
+.
+.
+.
+#endif 
+
+works same
+
+x%2 == 0 //to check odd number prefarrable to use bit operation:
+x&1 == 0 //!!
+ same with  x / 2 __ x >> 1
+ same with  x * 2 __ x << 1
