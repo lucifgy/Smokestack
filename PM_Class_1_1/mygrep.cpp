@@ -1,31 +1,66 @@
 #include <iostream>
 #include <fstream>
-#include <cstring>
+#include "ringbuf.h"
 
-void mygrep(char* filename, char* str_to_search)
+int strdiff(const char* x, const char y, int length)
 {
-
+  int pos = length -1;
+  while(y[pos] == x[pos])
+  {
+    --pos;
+    if(pos < 0)
+    {
+      return -1;
+    }
+  }
+  return pos;
 }
 
 int main(int argc, char* argv[])
 {
-  char inputFileName[256];
-  char str_to_search[256];
-  if (argc > 2)
+  if(argc < 3)//TODO
   {
-    strcpy(inputFileName, argv[1]);
-    strcpy(str_to_search, argv[2]);
   }
-  std::ifstream inFile(inputFileName);
-  if (!inFile)
+  std::ifstream inFile(argv[1]);
+  if(!inFile)//TODO
   {
-    std::cerr << "Cannot open file " << inputFileName << std::endl;
-    return 1;
   }
 
-  std::cout << count << std::endl;
+  char* what = argv[2];
 
+  int positions[256];
+  for (int i = 0; i < 256; ++i)
+  {//TODO
+  }
+  int length = 0;
+  for (int i = 0; what[i] != '\n'; ++i)
+  {//TODO
+  }
+
+  ringbuf buf;
+  init(buf, length);
+
+  int count = 0;
+  int linenumver = 1;
+  int charnumber = 0;
+  int shift = length;
+
+  while(true)
+  {
+    while(shift > 0)
+    {
+      int ch = inFile.get();
+      if(ch == EOF)
+        break;
+      ++charnumber;
+      if(ch == '\n')
+      {
+        //TODO
+      }
+    }
+  }
+
+  destruct(buf);
   inFile.close();
-
   return 0;
 }
