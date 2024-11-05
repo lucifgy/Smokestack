@@ -46,9 +46,9 @@ for ticker in tickers:
                     # Extract the last element (e.g., "Before Open")
                     first_entry = earnings_table[0]  # The first earnings entry
                     before_open_info = first_entry[-1]  # The last element is the time information
-                    print(f"{ticker} - Next Earnings Time: {before_open_info}")
+                    print(f"{ticker} {before_open_info}")
                 else:
-                    print(f"{ticker} - No earnings data found.")
+                    print(f"NA")
             except json.JSONDecodeError:
                 print(f"{ticker} - Error parsing JSON data.")
         else:
@@ -57,8 +57,7 @@ for ticker in tickers:
         print(f"{ticker} - Failed to fetch data. Status code: {response.status_code}")
 
     # Random delay between 30-60 seconds
-    delay = random.randint(30, 60)
-    print(f"Waiting for {delay} seconds before the next request...")
+    delay = random.randint(1, 5)
     time.sleep(delay)
 
 print("Data fetching complete.")
